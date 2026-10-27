@@ -1,0 +1,254 @@
+{
+  "deterministic_bulk_reader": [
+    {
+      "id": "bulk-cursor-class",
+      "type": "bulk-reader",
+      "category": "symbol-lookup",
+      "file": "open-sse/executors/cursor.js",
+      "question": "What is the primary class exported in open-sse/executors/cursor.js?",
+      "expected_keywords": ["CursorExecutor"]
+    },
+    {
+      "id": "bulk-kiro-class",
+      "type": "bulk-reader",
+      "category": "symbol-lookup",
+      "file": "open-sse/executors/kiro.js",
+      "question": "What is the primary class exported in open-sse/executors/kiro.js?",
+      "expected_keywords": ["KiroExecutor"]
+    },
+    {
+      "id": "bulk-tailscale-socket",
+      "type": "bulk-reader",
+      "category": "constant-lookup",
+      "file": "src/lib/tunnel/tailscale/tailscale.js",
+      "question": "What is the socket constant name exported in src/lib/tunnel/tailscale/tailscale.js?",
+      "expected_keywords": ["TAILSCALE_SOCKET"]
+    },
+    {
+      "id": "bulk-token-expiry-buffer",
+      "type": "bulk-reader",
+      "category": "constant-lookup",
+      "file": "src/sse/services/tokenRefresh.js",
+      "question": "What is the constant name exported for token expiry buffer in src/sse/services/tokenRefresh.js?",
+      "expected_keywords": ["TOKEN_EXPIRY_BUFFER_MS"]
+    },
+    {
+      "id": "bulk-mitm-start-server",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "src/mitm/manager.js",
+      "question": "What function starts the MITM server in src/mitm/manager.js?",
+      "expected_keywords": ["startServer", "startMitm"]
+    },
+    {
+      "id": "bulk-usage-stats-emitter",
+      "type": "bulk-reader",
+      "category": "symbol-lookup",
+      "file": "src/lib/db/repos/usageRepo.js",
+      "question": "What is the name of the EventEmitter instance exported in src/lib/db/repos/usageRepo.js?",
+      "expected_keywords": ["statsEmitter"]
+    },
+    {
+      "id": "bulk-custom-server-peer-token",
+      "type": "bulk-reader",
+      "category": "constant-lookup",
+      "file": "custom-server.js",
+      "question": "What environment variable is set for the peer token in custom-server.js?",
+      "expected_keywords": ["NINEROUTER_PEER_TOKEN"]
+    },
+    {
+      "id": "bulk-aliasrepo-scopes",
+      "type": "bulk-reader",
+      "category": "pattern-lookup",
+      "file": "src/lib/db/repos/aliasRepo.js",
+      "question": "What are the KV scope names created via makeKv in src/lib/db/repos/aliasRepo.js?",
+      "expected_keywords": ["modelAliases", "customModels", "mitmAlias"]
+    },
+    {
+      "id": "bulk-chatcore-main",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "open-sse/handlers/chatCore.js",
+      "question": "What is the main function exported by open-sse/handlers/chatCore.js?",
+      "expected_keywords": ["handleChatCore"]
+    },
+    {
+      "id": "bulk-modelselect-component",
+      "type": "bulk-reader",
+      "category": "component-lookup",
+      "file": "src/shared/components/ModelSelectModal.js",
+      "question": "What is the React component exported in src/shared/components/ModelSelectModal.js?",
+      "expected_keywords": ["ModelSelectModal"]
+    },
+    {
+      "id": "bulk-oauthmodal-component",
+      "type": "bulk-reader",
+      "category": "component-lookup",
+      "file": "src/shared/components/OAuthModal.js",
+      "question": "What is the React component exported in src/shared/components/OAuthModal.js?",
+      "expected_keywords": ["OAuthModal"]
+    },
+    {
+      "id": "bulk-tokenrefresh-google",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "src/sse/services/tokenRefresh.js",
+      "question": "What is the exported function name to refresh Google tokens in src/sse/services/tokenRefresh.js?",
+      "expected_keywords": ["refreshGoogleToken"]
+    },
+    {
+      "id": "bulk-tailscale-isrunning",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "src/lib/tunnel/tailscale/tailscale.js",
+      "question": "What is the function exported in src/lib/tunnel/tailscale/tailscale.js to check if Tailscale is running?",
+      "expected_keywords": ["isTailscaleRunning"]
+    },
+    {
+      "id": "bulk-testutils-single",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "src/app/api/providers/[id]/test/testUtils.js",
+      "question": "What is the exported function to test a single connection in src/app/api/providers/[id]/test/testUtils.js?",
+      "expected_keywords": ["testSingleConnection"]
+    },
+    {
+      "id": "bulk-connections-table",
+      "type": "bulk-reader",
+      "category": "pattern-lookup",
+      "file": "src/lib/db/repos/connectionsRepo.js",
+      "question": "What table or entity is primarily queried in src/lib/db/repos/connectionsRepo.js?",
+      "expected_keywords": ["connections"]
+    },
+    {
+      "id": "bulk-usage-push-ring",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "src/lib/db/repos/usageRepo.js",
+      "question": "What function pushes usage data into the in-memory ring in src/lib/db/repos/usageRepo.js?",
+      "expected_keywords": ["pushToRing"]
+    },
+    {
+      "id": "bulk-oauth-server-start",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "src/lib/oauth/utils/server.js",
+      "question": "What function starts the local OAuth server in src/lib/oauth/utils/server.js?",
+      "expected_keywords": ["startLocalServer"]
+    },
+    {
+      "id": "bulk-chat-handler-export",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "src/sse/handlers/chat.js",
+      "question": "What is the primary exported request handler function in src/sse/handlers/chat.js?",
+      "expected_keywords": ["handleChat"]
+    }
+  ],
+  "deterministic_code_writer": [
+    {
+      "id": "cw-unit-test-scratch",
+      "type": "code-writer",
+      "category": "test-generation",
+      "reference": "tests/unit/account-fallback-4xx.test.js",
+      "target_file": "evals/scratch/test-scratch-status.test.js",
+      "prompt": "Create a unit test file at evals/scratch/test-scratch-status.test.js that imports describe, it, expect from vitest and tests a function checkStatus(code) returning true for 200 and false for 500.",
+      "required_patterns": ["describe", "it", "expect", "vitest", "checkStatus"]
+    },
+    {
+      "id": "cw-db-repo-scratch",
+      "type": "code-writer",
+      "category": "repo-generation",
+      "reference": "src/lib/db/repos/aliasRepo.js",
+      "target_file": "evals/scratch/dummyRepo.js",
+      "prompt": "Create a database repository file at evals/scratch/dummyRepo.js matching the style of src/lib/db/repos/aliasRepo.js that imports makeKv from '../helpers/kvStore.js' and exports getDummyItems() and setDummyItem(key, val).",
+      "required_patterns": ["makeKv", "getDummyItems", "setDummyItem", "export"]
+    },
+    {
+      "id": "cw-db-adapter-scratch",
+      "type": "code-writer",
+      "category": "adapter-generation",
+      "reference": "src/lib/db/driver.js",
+      "target_file": "evals/scratch/mockAdapter.js",
+      "prompt": "Create a database adapter file at evals/scratch/mockAdapter.js that defines class MockAdapter with methods query(sql, params) and run(sql, params) and exports MockAdapter as default.",
+      "required_patterns": ["class MockAdapter", "query", "run", "export default"]
+    },
+    {
+      "id": "cw-constants-scratch",
+      "type": "code-writer",
+      "category": "constant-generation",
+      "reference": "src/shared/constants/cliToolProvider.js",
+      "target_file": "evals/scratch/networkConstants.js",
+      "prompt": "Create a constants module at evals/scratch/networkConstants.js that exports UPPER_SNAKE_CASE constants: DEFAULT_TIMEOUT_MS = 5000, MAX_RETRIES = 3, and RETRY_BACKOFF_BASE = 1000.",
+      "required_patterns": ["DEFAULT_TIMEOUT_MS", "MAX_RETRIES", "RETRY_BACKOFF_BASE", "export const"]
+    },
+    {
+      "id": "cw-token-helper-scratch",
+      "type": "code-writer",
+      "category": "helper-generation",
+      "reference": "src/sse/services/tokenRefresh.js",
+      "target_file": "evals/scratch/tokenHelper.js",
+      "prompt": "Create a utility helper at evals/scratch/tokenHelper.js that exports function isTokenExpired(expiresAt, bufferMs = 300000) returning boolean, and function maskToken(token) returning string.",
+      "required_patterns": ["export function isTokenExpired", "export function maskToken"]
+    },
+    {
+      "id": "cw-error-scratch",
+      "type": "code-writer",
+      "category": "error-generation",
+      "reference": "open-sse/utils/error.js",
+      "target_file": "evals/scratch/customError.js",
+      "prompt": "Create an error class at evals/scratch/customError.js that exports class GatewayError extends Error with constructor(message, statusCode = 500) setting this.statusCode = statusCode.",
+      "required_patterns": ["class GatewayError extends Error", "this.statusCode", "export"]
+    }
+  ],
+  "rubric_evaluation": [
+    {
+      "id": "rubric-cursor-executor-arch",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "open-sse/executors/cursor.js",
+      "question": "Explain the architecture and main steps of CursorExecutor in open-sse/executors/cursor.js.",
+      "rubric": "Must mention protobuf encoding/decoding, agent frame handling, and streaming or SSE transmission."
+    },
+    {
+      "id": "rubric-token-refresh-flow",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "src/sse/services/tokenRefresh.js",
+      "question": "Describe how token expiration buffer and credentials update work in src/sse/services/tokenRefresh.js.",
+      "rubric": "Must mention TOKEN_EXPIRY_BUFFER_MS / buffer check, updateProviderCredentials, and error handling during refresh."
+    },
+    {
+      "id": "rubric-tailscale-tunneling",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "src/lib/tunnel/tailscale/tailscale.js",
+      "question": "Explain how Tailscale daemon status and Funnel URLs are probed and resolved in src/lib/tunnel/tailscale/tailscale.js.",
+      "rubric": "Must mention background binary probing, status check commands, and funnel URL extraction."
+    },
+    {
+      "id": "rubric-mitm-privilege-manager",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "src/mitm/manager.js",
+      "question": "Describe how sudo password caching and DNS manipulation are managed in src/mitm/manager.js.",
+      "rubric": "Must mention password caching/encryption, port 443 handling, and enableToolDNS/disableToolDNS."
+    },
+    {
+      "id": "rubric-chatcore-pipeline",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "open-sse/handlers/chatCore.js",
+      "question": "Explain the routing and format translation pipeline in open-sse/handlers/chatCore.js.",
+      "rubric": "Must mention fallback chain, format translation between OpenAI and providers, and error handling."
+    },
+    {
+      "id": "rubric-usage-ring-aggregation",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "src/lib/db/repos/usageRepo.js",
+      "question": "Explain how usage statistics are recorded, buffered, and aggregated in src/lib/db/repos/usageRepo.js.",
+      "rubric": "Must mention ring buffer (pushToRing), daily/monthly aggregation, and statsEmitter event emission."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+droid-shunt/evals/express-master.zip
+droid-shunt/evals/express-master/
+droid-shunt/evals/results/
+droid-shunt/evals/scratch/

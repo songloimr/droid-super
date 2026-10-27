@@ -1,0 +1,209 @@
+{
+  "skill_name": "planner",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "add dark mode support to the app",
+      "expected_output": "Classify as Feature, inspect the existing theming path, pick a track from evidence, and plan before editing.",
+      "files": [],
+      "expectations": [
+        "States Feature classification and one primary language before discussing the work.",
+        "Chooses Focused or Full from repository evidence rather than assuming a rewrite.",
+        "Investigates the existing theme path before proposing a design.",
+        "Makes no Edit, Create, or ApplyPatch call before the user approves the plan."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Corrige el flujo de pago duplicado y responde en español.",
+      "expected_output": "Classify as Bug, use Spanish as the primary language, and trace the shared payment path before choosing a fix.",
+      "files": [],
+      "expectations": [
+        "States Bug classification and Spanish as the primary language.",
+        "Traces the shared payment and cache path before selecting a fix.",
+        "Preserves code identifiers, commands, and paths without unnecessary translation."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "refactor the auth module — it's gotten messy",
+      "expected_output": "Treat the vague goal as a clarification need, gather evidence about callers and contracts, and plan only evidence-supported restructuring.",
+      "files": [],
+      "expectations": [
+        "Treats the vague success criteria as a clarification or research need.",
+        "Maps auth callers, tests, configuration, and public contracts that may be affected.",
+        "Delegates research only to a read-only subagent from the session's list with a self-contained handoff; no implementation work is delegated before approval.",
+        "Does not invent alternative architectures when evidence supports one path."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "remove the legacy payments adapter, we've fully migrated to Stripe",
+      "expected_output": "Plan a safe removal by verifying the migration claim and deciding how every affected artifact is handled.",
+      "files": [],
+      "expectations": [
+        "Classifies the request as Refactor/Removal.",
+        "Treats the claim of full migration as a premise to verify against consumers.",
+        "Records a retain, update, migrate, or remove outcome for each affected artifact.",
+        "Does not plan cleanup of unrelated pre-existing dead code."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "migrate the monolith's notification system into a separate microservice. The team that will execute this has never seen this codebase.",
+      "expected_output": "Use Full planning to map contracts and migration boundaries, and write a plan a stranger engineer can execute.",
+      "files": [],
+      "expectations": [
+        "Classifies the work as Architecture and selects the Full track.",
+        "Produces a self-contained plan: every domain or project term defined where it is used, repo-relative paths, and a working directory for every command.",
+        "Uses a decision table only for real migration trade-offs and records rejected alternatives.",
+        "Includes cut-over, failure handling, and rollback or stop conditions where applicable.",
+        "Delivers the plan in the response or the Spec submission, never as a file written into the repository."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "/planner rename the typo `recieveEmail` to `receiveEmail` in src/email/validation.ts; it is used nowhere else",
+      "expected_output": "Give a short Focused plan that confirms the premise, without invented process.",
+      "files": [],
+      "expectations": [
+        "Defaults to the Focused track when the symbol and its references confirm the requested scope.",
+        "Confirms the no-other-uses premise with direct search or equivalent evidence.",
+        "Does not fabricate alternatives or require a decision table.",
+        "Still waits for explicit approval before editing."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "/planner migrate our session storage from the database to Redis across the API, the worker fleet, and the mobile gateway.",
+      "expected_output": "Choose the track from repository evidence instead of defaulting blindly to Focused for an explicitly invoked cross-system change.",
+      "files": [],
+      "expectations": [
+        "Does not default to Focused merely because planner was explicitly invoked.",
+        "Selects Full when evidence shows multiple systems, consumers, or contracts.",
+        "States classification and primary language first.",
+        "Does not edit implementation files before explicit approval."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Here is the approved plan: add CSV export to admin reports. During implementation you discover the export must stream rows because the dataset exceeds memory. Continue.",
+      "expected_output": "Stop at the material deviation, revise the plan with the reason, and seek renewed approval instead of drifting.",
+      "files": [],
+      "expectations": [
+        "Recognizes the streaming requirement as a material deviation from the approved plan.",
+        "Stops implementation instead of silently expanding scope.",
+        "Updates the plan with the reason for the change.",
+        "Seeks renewed approval before editing under the revised plan.",
+        "Loads the approved tasks into TodoWrite and updates task status as work proceeds."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Here is the approved plan: add CSV export to admin reports. Also, while you are at it, rebuild the report filtering UI.",
+      "expected_output": "Implement only the approved CSV-export scope and surface the UI rebuild as a new scope change needing approval.",
+      "files": [],
+      "expectations": [
+        "Separates the approved CSV export from the unapproved UI rebuild.",
+        "Does not silently expand implementation scope.",
+        "Requests a revised plan or explicit approval for the UI change."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "I approve your plan, except use a background job instead of a synchronous endpoint.",
+      "expected_output": "Treat the changed execution model as a material plan revision, not as implementation approval.",
+      "files": [],
+      "expectations": [
+        "Recognizes the change as a material architecture and behavior decision that revises the plan.",
+        "Returns to planning to assess queueing, failure handling, observability, and consumer impact.",
+        "Seeks renewed approval for the revised plan before editing."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "We need export files to be encrypted. First decide whether to use customer-managed keys, then decide the file format.",
+      "expected_output": "Resolve the key-management choice before asking about the dependent file-format design.",
+      "files": [],
+      "expectations": [
+        "Creates decision-table rows only for choices that requirements and evidence do not settle.",
+        "Resolves the key-management decision before asking about the dependent file-format choice.",
+        "Does not batch dependent decisions into one question set.",
+        "Does not submit the plan while a material decision is pending."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Remove `LegacyParser`. The graph index says there are no callers, but coverage is partial for generated/.",
+      "expected_output": "Do not make an exhaustive no-consumer claim until the generated-code coverage gap is resolved or disclosed.",
+      "files": [],
+      "expectations": [
+        "Checks index coverage before relying on the negative graph claim.",
+        "Searches or otherwise handles the reported generated-code gap.",
+        "Treats unknown consumers as a blocker or an explicit evidence limitation.",
+        "Does not submit a removal plan that assumes the coverage gap proves there are no references."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Add a database index to make the invoice search faster. We cannot measure production query plans until after deployment.",
+      "expected_output": "Plan with current evidence and a planned implementation condition instead of guessing production results.",
+      "files": [],
+      "expectations": [
+        "Investigates the current query path and existing indexes before proposing the change.",
+        "Records the unavailable production measurement as an implementation condition with a fallback or stop.",
+        "Defines a safe post-deployment verification and a stop or rollback condition if warranted.",
+        "Does not present unmeasurable production performance as verified."
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Delete the old feature flag and all its code. There are unrelated uncommitted edits in the same directory.",
+      "expected_output": "Plan the deletion while preserving uncommitted user work and keeping cleanup bounded.",
+      "files": [],
+      "expectations": [
+        "Inspects and preserves existing or untracked user changes.",
+        "Traces feature-flag declarations, consumers, configuration, tests, and docs.",
+        "Does not use broad cleanup or overwrite operations that could discard user work.",
+        "Includes a bounded stale-artifact cleanup checklist."
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "The focused test for the approved parser fix fails because the assertion expected the old error message. Update the test and rerun it.",
+      "expected_output": "Allow an in-scope test correction aligned with approved behavior, then revalidate.",
+      "files": [],
+      "expectations": [
+        "Distinguishes an in-scope test correction from a conformance review FAIL.",
+        "Verifies the expected message should change under the approved behavior before editing the test.",
+        "Reruns the focused validation after the correction and reports the command, working directory, and result.",
+        "Returns to planning if the failure reveals a material behavior change."
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "The conformance reviewer found that src/auth/session.ts:88 still accepts the removed token format. Continue and fix it automatically.",
+      "expected_output": "Report the finding and stop for user direction, because a conformance review FAIL is a hard escalation point.",
+      "files": [],
+      "expectations": [
+        "Reports the file:line finding and its brief impact.",
+        "Does not auto-fix the conformance review finding.",
+        "Marks the work as blocked rather than completed.",
+        "Requests user direction to revise scope, authorize a new plan, or proceed."
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "Implement the approved Focused plan: add request-id logging to the three API handlers listed in the plan.",
+      "expected_output": "Track the tasks, report per-task evidence, and run the mandatory conformance review before claiming completion.",
+      "files": [],
+      "expectations": [
+        "Loads the approved tasks into TodoWrite and updates task status as work proceeds.",
+        "Reports per-task evidence: command with working directory, exit code or output excerpt, and files changed, not a bare done.",
+        "Runs the mandatory conformance review via the conformance-reviewer droid even for a Focused change.",
+        "Discloses the limitation when self-reviewing because the conformance-reviewer droid is unavailable.",
+        "Reports the review verdict and any unavailable checks in the final response."
+      ]
+    }
+  ]
+}

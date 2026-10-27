@@ -1,0 +1,21 @@
+{
+  "name": "droid-super",
+  "description": "Personal Droid plugin marketplace by songloimr",
+  "owner": { "name": "songloimr" },
+  "plugins": [
+    {
+      "name": "droid-shunt",
+      "description": "Shunts I/O-heavy work to cheap subagent models to save tokens. Hooks block large file reads and redirect to the bulk-reader/code-writer droids.",
+      "source": "./droid-shunt",
+      "category": "productivity",
+      "tags": ["token-optimization", "model-routing", "delegation", "subagent"]
+    },
+    {
+      "name": "droid-plan",
+      "description": "Evidence-based planning workflow for non-trivial code changes. Plans before editing, then validates with a mandatory conformance review.",
+      "source": "./droid-plan",
+      "category": "productivity",
+      "tags": ["planning", "spec", "review", "conformance"]
+    }
+  ]
+}

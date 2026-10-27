@@ -1,0 +1,122 @@
+[
+  {
+    "id": "task-01-response-send-large",
+    "category": "delegate-yes",
+    "prompt": "Inspect lib/response.js and explain how res.send determines the Content-Type header when body is a Buffer, a String, or an Object. List the exact methods or functions called.",
+    "facts_checklist": ["Buffer", "String", "json", "contentType"]
+  },
+  {
+    "id": "task-02-response-cookie-large",
+    "category": "delegate-yes",
+    "prompt": "Inspect lib/response.js and explain the implementation of res.cookie and res.clearCookie. What default options are applied, and how is maxAge or expires handled?",
+    "facts_checklist": ["res.cookie", "res.clearCookie", "maxAge", "encode"]
+  },
+  {
+    "id": "task-03-application-init-large",
+    "category": "delegate-yes",
+    "prompt": "Inspect lib/application.js and describe what settings are initialized by default in app.defaultConfiguration. Specifically list how env, etag, and trust proxy are configured.",
+    "facts_checklist": ["defaultConfiguration", "NODE_ENV", "etag", "trust proxy"]
+  },
+  {
+    "id": "task-04-application-use-large",
+    "category": "delegate-yes",
+    "prompt": "Inspect lib/application.js and explain how app.use handles path-mounted middleware and sub-apps. What properties are set on mounted apps?",
+    "facts_checklist": ["app.use", "mount", "app.handle", "parent"]
+  },
+  {
+    "id": "task-05-request-params-large",
+    "category": "delegate-yes",
+    "prompt": "Inspect lib/request.js and explain how req.get, req.range, and req.accepts are implemented. What third-party or internal helpers do they delegate to?",
+    "facts_checklist": ["req.get", "req.range", "req.accepts", "header"]
+  },
+  {
+    "id": "task-06-test-router-large",
+    "category": "delegate-yes",
+    "prompt": "Inspect test/app.router.js and explain what scenarios are tested for error handling and middleware execution order across route definitions.",
+    "facts_checklist": ["next", "error", "router", "middleware"]
+  },
+  {
+    "id": "task-07-test-sendfile-large",
+    "category": "delegate-yes",
+    "prompt": "Inspect test/res.sendFile.js and summarize the test cases covering options such as root, dotfiles, headers, and maxAge.",
+    "facts_checklist": ["root", "dotfiles", "headers", "maxAge"]
+  },
+  {
+    "id": "task-08-history-changelog-large",
+    "category": "delegate-yes",
+    "prompt": "Inspect History.md and summarize the major changes recorded for the 4.0.0 release. What breaking changes and dependency updates are listed?",
+    "facts_checklist": ["4.0.0", "connect", "middleware", "Router"]
+  },
+  {
+    "id": "task-09-view-lookup-small",
+    "category": "delegate-no",
+    "prompt": "Read lib/view.js and explain how View.prototype.lookup searches for template files given view name, engine extension, and directory roots.",
+    "facts_checklist": ["lookup", "resolve", "root"]
+  },
+  {
+    "id": "task-10-utils-etag-small",
+    "category": "delegate-no",
+    "prompt": "Read lib/utils.js and describe how compileETag generates strong vs weak etag functions. What options does createETagGenerator support?",
+    "facts_checklist": ["compileETag", "createETagGenerator", "weak", "etag"]
+  },
+  {
+    "id": "task-11-utils-trust-proxy-small",
+    "category": "delegate-no",
+    "prompt": "Read lib/utils.js and explain how compileTrust converts different trust settings (boolean, number, string, array, function) into a trust evaluator function.",
+    "facts_checklist": ["compileTrust", "proxyaddr", "trust"]
+  },
+  {
+    "id": "task-12-res-location-small",
+    "category": "delegate-no",
+    "prompt": "Read test/res.location.js and summarize how res.location handles 'back' URL, relative paths, and URL encoding.",
+    "facts_checklist": ["res.location", "back", "Location"]
+  },
+  {
+    "id": "task-13-res-redirect-small",
+    "category": "delegate-no",
+    "prompt": "Read test/res.redirect.js and describe what HTTP status codes (302, 301, 303) are tested for res.redirect and how the response body is formatted.",
+    "facts_checklist": ["res.redirect", "302", "Redirecting to"]
+  },
+  {
+    "id": "task-14-res-format-small",
+    "category": "delegate-no",
+    "prompt": "Read test/res.format.js and describe how res.format selects the appropriate representation based on Accept headers, and what error is returned if no match is found.",
+    "facts_checklist": ["res.format", "Accept", "406"]
+  },
+  {
+    "id": "task-15-index-entry-control",
+    "category": "control-small",
+    "prompt": "Read index.js and explain what module it requires and exports.",
+    "facts_checklist": ["lib/express", "module.exports"]
+  },
+  {
+    "id": "task-16-hello-world-control",
+    "category": "control-small",
+    "prompt": "Read examples/hello-world/index.js and state the port number listened on and the response sent on GET /.",
+    "facts_checklist": ["3000", "Hello World"]
+  },
+  {
+    "id": "task-17-regression-test-control",
+    "category": "control-small",
+    "prompt": "Read test/regression.js and explain what regression test case is covered in this file.",
+    "facts_checklist": ["regression", "res", "status"]
+  },
+  {
+    "id": "task-18-mixed-app-and-express",
+    "category": "mixed",
+    "prompt": "Compare lib/express.js and lib/application.js. Explain how createApplication constructs the app instance, mixes in EventEmitter and proto, and initializes the application.",
+    "facts_checklist": ["createApplication", "mixin", "EventEmitter", "proto"]
+  },
+  {
+    "id": "task-19-mixed-res-render-and-view",
+    "category": "mixed",
+    "prompt": "Compare res.render in lib/response.js and View.prototype.render in lib/view.js. Explain how res.render constructs options and delegates rendering to app.render and View.",
+    "facts_checklist": ["res.render", "app.render", "View"]
+  },
+  {
+    "id": "task-20-mixed-req-ip-and-utils",
+    "category": "mixed",
+    "prompt": "Analyze how req.ip in lib/request.js uses the trust proxy configuration compiled by compileTrust in lib/utils.js.",
+    "facts_checklist": ["req.ip", "trust proxy", "compileTrust"]
+  }
+]

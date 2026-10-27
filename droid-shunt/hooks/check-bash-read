@@ -1,0 +1,59 @@
+#!/bin/bash
+# Block shell bulk reads (cat/head/tail/less/more) on large files, redirect to
+# the bulk-reader subagent. Catches reads that bypass the Read hook.
+# Droid PreToolUse protocol: exit 2 blocks the tool call; stderr is feedback.
+
+MIN_LINES="${SHUNT_MIN_LINES:-350}"
+case "$MIN_LINES" in ''|*[!0-9]*) MIN_LINES=350 ;; esac
+
+input=$(cat)
+
+cwd=$(printf '%s' "$input" | jq -r '.cwd // empty')
+command=$(printf '%s' "$input" | jq -r '.tool_input.command // empty')
+[ -z "$command" ] && exit 0
+
+# Pipes (cat f | grep) and redirections (cat f > out) are targeted reads or
+# writes, not read-into-context operations.
+case "$command" in *'|'*) exit 0 ;; esac
+case "$command" in *'>'*) exit 0 ;; esac
+
+# Locate the first read command at a command boundary, so compound commands
+# like "cd x && cat big" are caught too.
+if ! [[ "$command" =~ (^|[;&|])[[:space:]]*(cat|head|tail|less|more)[[:space:]]+(.*)$ ]]; then
+  exit 0
+fi
+args="${BASH_REMATCH[3]}"
+
+# First path argument: skip flags and pure numbers ("head -n 5 f" — 5 is a
+# flag value, not a path). A file literally named "5" is a documented
+# tradeoff: it passes through unblocked.
+file_path=""
+for arg in $args; do
+  case "$arg" in
+    -*)         continue ;;
+    *[!0-9]*)   file_path=$(printf '%s' "$arg" | tr -d "\"'"); break ;;
+  esac
+done
+[ -z "$file_path" ] && exit 0
+
+# Resolve the path the way the shell would.
+case "$file_path" in
+  "~")   file_path="$HOME" ;;
+  "~/"*) file_path="$HOME/${file_path#\~/}" ;;
+esac
+case "$file_path" in
+  /*) : ;;
+  *)  [ -n "$cwd" ] && file_path="$cwd/$file_path" ;;
+esac
+
+# File doesn't exist — let the command report the error itself.
+[ -f "$file_path" ] || exit 0
+
+lines=$(wc -l < "$file_path" 2>/dev/null | tr -d ' ')
+case "$lines" in ''|*[!0-9]*) lines=0 ;; esac
+
+if [ "$lines" -gt "$MIN_LINES" ]; then
+  echo "File is ${lines} lines (threshold: ${MIN_LINES}). Do not read it with cat/head/tail/less/more. Delegate the read to the bulk-reader subagent via the Task tool (bulk-reader skill): pass only the file path(s) and your question. If Task is unavailable (subagent or low autonomy), read chunked using Read with offset/limit or use Grep." >&2
+  exit 2
+fi
+exit 0

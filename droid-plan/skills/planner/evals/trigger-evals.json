@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Our mobile app's onboarding state is split across three stores and product wants a new account recovery step. Before coding, map the state transitions and propose a safe migration.",
+    "should_trigger": true
+  },
+  {
+    "query": "the billing api kills v1 next quarter and we have web, ios and partner clients — work out the compatibility story and rollout before anyone touches code",
+    "should_trigger": true
+  },
+  {
+    "query": "can you clean up the permissions stuff? nobody knows which flags are still live, but don't break SSO",
+    "should_trigger": true
+  },
+  {
+    "query": "We are extracting audit logging from the monolith. Retention rules, a public webhook, and two downstream warehouses depend on it.",
+    "should_trigger": true
+  },
+  {
+    "query": "customers get double-charged when they refresh the checkout confirmation page. dig through the shared payment flow and give me a safe fix path",
+    "should_trigger": true
+  },
+  {
+    "query": "Retire the legacy SMS provider adapter once every fallback path and customer notification template is accounted for.",
+    "should_trigger": true
+  },
+  {
+    "query": "Move image uploads to object storage without breaking existing URLs, and we'll need a rollback plan.",
+    "should_trigger": true
+  },
+  {
+    "query": "Add organization-scoped roles to the API. We still have old global roles, a web UI, CLI clients, and integration tokens to reckon with.",
+    "should_trigger": true
+  },
+  {
+    "query": "before we touch the scheduler i want a clear picture of what breaks if we change the job retry semantics",
+    "should_trigger": true
+  },
+  {
+    "query": "Design the zero-downtime rollout for splitting the reporting service out of the monolith.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review this migration plan for gaps. Do not write a new plan or edit code.",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain what the refresh-token function in the authentication module does.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write an ADR for why we picked Postgres over MySQL for the new billing service.",
+    "should_trigger": false
+  },
+  {
+    "query": "Change the button label from 'Save changes' to 'Save' on line 120 of src/components/ProfileForm.tsx.",
+    "should_trigger": false
+  },
+  {
+    "query": "The CI lint job failed on one unused import. Remove that import and rerun lint.",
+    "should_trigger": false
+  },
+  {
+    "query": "What is the difference between a database index and a materialized view?",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize the open PR's diff in five bullets.",
+    "should_trigger": false
+  },
+  {
+    "query": "Update the README screenshot after the new navigation layout shipped.",
+    "should_trigger": false
+  },
+  {
+    "query": "Find all TODO comments under packages/api and give me a list.",
+    "should_trigger": false
+  },
+  {
+    "query": "Pair with me through the payments refactor — I'll write the code, you just answer my questions as I go.",
+    "should_trigger": false
+  }
+]

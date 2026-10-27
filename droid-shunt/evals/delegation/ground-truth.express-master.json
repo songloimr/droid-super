@@ -1,0 +1,239 @@
+{
+  "timestamp": "2026-10-25T15:16:10.853Z",
+  "target": "express-master",
+  "repoRoot": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master",
+  "bulk_reader_gt": {
+    "bulk-express-create-application": {
+      "file": "lib/express.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/express.js",
+      "sha256": "4f35e8273a5e78c35e778d14e4a8c80a81ca3e1fc8047dc87d2077b860404572",
+      "lineCount": 81,
+      "expected_keywords": [
+        "createApplication"
+      ]
+    },
+    "bulk-application-init": {
+      "file": "lib/application.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/application.js",
+      "sha256": "6d7e08355025786982d17042fc0355b6a5e9339545dc27e2782b3aaa28a7bc04",
+      "lineCount": 631,
+      "expected_keywords": [
+        "app.init"
+      ]
+    },
+    "bulk-application-default-configuration": {
+      "file": "lib/application.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/application.js",
+      "sha256": "6d7e08355025786982d17042fc0355b6a5e9339545dc27e2782b3aaa28a7bc04",
+      "lineCount": 631,
+      "expected_keywords": [
+        "defaultConfiguration"
+      ]
+    },
+    "bulk-application-handle": {
+      "file": "lib/application.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/application.js",
+      "sha256": "6d7e08355025786982d17042fc0355b6a5e9339545dc27e2782b3aaa28a7bc04",
+      "lineCount": 631,
+      "expected_keywords": [
+        "app.handle"
+      ]
+    },
+    "bulk-response-status": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.status"
+      ]
+    },
+    "bulk-response-send": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.send"
+      ]
+    },
+    "bulk-response-json": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.json"
+      ]
+    },
+    "bulk-response-jsonp": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.jsonp"
+      ]
+    },
+    "bulk-response-sendfile": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.sendFile"
+      ]
+    },
+    "bulk-response-cookie": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.cookie"
+      ]
+    },
+    "bulk-response-clear-cookie": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.clearCookie"
+      ]
+    },
+    "bulk-response-location": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.location"
+      ]
+    },
+    "bulk-response-redirect": {
+      "file": "lib/response.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/response.js",
+      "sha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "lineCount": 1050,
+      "expected_keywords": [
+        "res.redirect"
+      ]
+    },
+    "bulk-request-header": {
+      "file": "lib/request.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/request.js",
+      "sha256": "a9fda39c4472aeaa4d696f4324f58cc1d036f84ed04145d6d56a12a59578e751",
+      "lineCount": 527,
+      "expected_keywords": [
+        "req.get"
+      ]
+    },
+    "bulk-request-accepts": {
+      "file": "lib/request.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/request.js",
+      "sha256": "a9fda39c4472aeaa4d696f4324f58cc1d036f84ed04145d6d56a12a59578e751",
+      "lineCount": 527,
+      "expected_keywords": [
+        "req.accepts"
+      ]
+    },
+    "bulk-request-is": {
+      "file": "lib/request.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/request.js",
+      "sha256": "a9fda39c4472aeaa4d696f4324f58cc1d036f84ed04145d6d56a12a59578e751",
+      "lineCount": 527,
+      "expected_keywords": [
+        "req.is"
+      ]
+    },
+    "bulk-utils-compile-etag": {
+      "file": "lib/utils.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/utils.js",
+      "sha256": "4bd3bf9c911e086d1911954708de7a6c384ed924360e3fd1d4a43c98bd68b112",
+      "lineCount": 271,
+      "expected_keywords": [
+        "compileETag"
+      ]
+    },
+    "bulk-view-lookup": {
+      "file": "lib/view.js",
+      "fullPath": "/Users/songloimr/GithubProjects/ai-skills/droid-super/droid-shunt/evals/express-master/lib/view.js",
+      "sha256": "74f4171b66263e22481820bc5975708f7dd8a61484f570aac7c5b4ab77ecbd79",
+      "lineCount": 205,
+      "expected_keywords": [
+        "lookup"
+      ]
+    }
+  },
+  "code_writer_gt": {
+    "cw-unit-test-express-scratch": {
+      "reference": "test/res.location.js",
+      "referenceSha256": "5d46e67f931862cf2372c210d8b3efb8ecaa31b328738115eb3ed3060a86f1ef",
+      "target_file": "evals/scratch/test-express-location.test.js",
+      "required_patterns": [
+        "describe",
+        "it",
+        "expect",
+        "vitest",
+        "normalizeLocation"
+      ]
+    },
+    "cw-middleware-scratch": {
+      "reference": "lib/application.js",
+      "referenceSha256": "6d7e08355025786982d17042fc0355b6a5e9339545dc27e2782b3aaa28a7bc04",
+      "target_file": "evals/scratch/customMiddleware.js",
+      "required_patterns": [
+        "function headerLogger",
+        "req",
+        "res",
+        "next",
+        "module.exports"
+      ]
+    },
+    "cw-router-scratch": {
+      "reference": "lib/express.js",
+      "referenceSha256": "4f35e8273a5e78c35e778d14e4a8c80a81ca3e1fc8047dc87d2077b860404572",
+      "target_file": "evals/scratch/apiRouter.js",
+      "required_patterns": [
+        "function createApiRouter",
+        "get",
+        "post",
+        "module.exports"
+      ]
+    },
+    "cw-etag-helper-scratch": {
+      "reference": "lib/utils.js",
+      "referenceSha256": "4bd3bf9c911e086d1911954708de7a6c384ed924360e3fd1d4a43c98bd68b112",
+      "target_file": "evals/scratch/etagHelper.js",
+      "required_patterns": [
+        "function isFresh",
+        "function generateHash",
+        "module.exports"
+      ]
+    },
+    "cw-view-engine-scratch": {
+      "reference": "lib/view.js",
+      "referenceSha256": "74f4171b66263e22481820bc5975708f7dd8a61484f570aac7c5b4ab77ecbd79",
+      "target_file": "evals/scratch/dummyEngine.js",
+      "required_patterns": [
+        "function dummyRender",
+        "filePath",
+        "options",
+        "callback",
+        "module.exports"
+      ]
+    },
+    "cw-http-error-scratch": {
+      "reference": "lib/response.js",
+      "referenceSha256": "efe24afe2978d0bf2ad52d5b163a7af0d25d965e5dfc75979c4fcc883c60a510",
+      "target_file": "evals/scratch/httpError.js",
+      "required_patterns": [
+        "class HttpError extends Error",
+        "this.status",
+        "this.message",
+        "module.exports"
+      ]
+    }
+  }
+}

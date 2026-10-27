@@ -1,0 +1,182 @@
+[
+  {
+    "id": "task-01-kiro-large",
+    "category": "delegate-yes",
+    "name": "Audit Kiro executor error handling and stop reason disposition",
+    "prompt": "Read open-sse/executors/kiro.js and report how makeAbortError, stopDisposition, and appendRepairInstruction function. Summarize key logic.",
+    "expected_files": ["open-sse/executors/kiro.js"],
+    "facts_checklist": ["makeAbortError", "stopDisposition", "appendRepairInstruction"],
+    "target_lines": 1200
+  },
+  {
+    "id": "task-02-cursor-proto-large",
+    "category": "delegate-yes",
+    "name": "Analyze Cursor protobuf encoding structure",
+    "prompt": "Read open-sse/utils/cursorProtobuf.js and describe how client and server message frames are serialized and encoded.",
+    "expected_files": ["open-sse/utils/cursorProtobuf.js"],
+    "facts_checklist": ["encode", "frame", "protobuf"],
+    "target_lines": 1123
+  },
+  {
+    "id": "task-03-tailscale-manager-large",
+    "category": "delegate-yes",
+    "name": "Review Tailscale tunnel daemon lifecycle and socket probing",
+    "prompt": "Read src/lib/tunnel/tailscale/tailscale.js and describe how getTailscaleBin, isTailscaleRunning, and probeStatusAsync work.",
+    "expected_files": ["src/lib/tunnel/tailscale/tailscale.js"],
+    "facts_checklist": ["getTailscaleBin", "isTailscaleRunning", "probeStatusAsync"],
+    "target_lines": 859
+  },
+  {
+    "id": "task-04-mitm-manager-large",
+    "category": "delegate-yes",
+    "name": "Examine MITM server privilege elevation and cert trust",
+    "prompt": "Read src/mitm/manager.js and explain how sudo password caching, trustCert, and DNS entry manipulation operate.",
+    "expected_files": ["src/mitm/manager.js"],
+    "facts_checklist": ["trustCert", "getCachedPassword", "DNS"],
+    "target_lines": 884
+  },
+  {
+    "id": "task-05-oauth-server-large",
+    "category": "delegate-yes",
+    "name": "Audit OAuth local callback server and session lifecycle",
+    "prompt": "Read src/lib/oauth/utils/server.js and explain the startLocalServer, waitForCallback, and session registration workflow.",
+    "expected_files": ["src/lib/oauth/utils/server.js"],
+    "facts_checklist": ["startLocalServer", "waitForCallback", "registerCodexSession"],
+    "target_lines": 973
+  },
+  {
+    "id": "task-06-usage-repo-large",
+    "category": "delegate-yes",
+    "name": "Review usage ring buffer aggregation and stats emission",
+    "prompt": "Read src/lib/db/repos/usageRepo.js and explain how pushToRing, aggregateEntryToDay, and statsEmitter handle traffic metrics.",
+    "expected_files": ["src/lib/db/repos/usageRepo.js"],
+    "facts_checklist": ["pushToRing", "aggregateEntryToDay", "statsEmitter"],
+    "target_lines": 815
+  },
+  {
+    "id": "task-07-test-utils-large",
+    "category": "delegate-yes",
+    "name": "Analyze single connection testing and probe classification",
+    "prompt": "Read src/app/api/providers/[id]/test/testUtils.js and explain classifyOAuthProbeResult and testSingleConnection.",
+    "expected_files": ["src/app/api/providers/[id]/test/testUtils.js"],
+    "facts_checklist": ["classifyOAuthProbeResult", "testSingleConnection"],
+    "target_lines": 989
+  },
+  {
+    "id": "task-08-model-select-modal-large",
+    "category": "delegate-yes",
+    "name": "Review ModelSelectModal component state and rendering",
+    "prompt": "Read src/shared/components/ModelSelectModal.js and explain how models are filtered, selected, and passed to callbacks.",
+    "expected_files": ["src/shared/components/ModelSelectModal.js"],
+    "facts_checklist": ["ModelSelectModal", "filter", "modal"],
+    "target_lines": 885
+  },
+  {
+    "id": "task-09-custom-server-plan",
+    "category": "delegate-no",
+    "name": "Plan refactoring of TCP socket IP detection in custom-server",
+    "prompt": "Inspect custom-server.js and create a detailed architecture plan to support an additional trusted proxy header. Do not modify files.",
+    "expected_files": ["custom-server.js"],
+    "facts_checklist": ["PEER_TOKEN", "isLoopbackProxy", "x-9r-real-ip"],
+    "target_lines": 139
+  },
+  {
+    "id": "task-10-alias-repo-edit-plan",
+    "category": "delegate-no",
+    "name": "Plan adding a bulk delete operation to aliasRepo",
+    "prompt": "Inspect src/lib/db/repos/aliasRepo.js and design the exact implementation steps for bulkDeleteModelAliases(aliasesArray). Do not modify files.",
+    "expected_files": ["src/lib/db/repos/aliasRepo.js"],
+    "facts_checklist": ["aliasKv", "transaction", "remove"],
+    "target_lines": 68
+  },
+  {
+    "id": "task-11-driver-sqlite-fallback",
+    "category": "delegate-no",
+    "name": "Analyze SQLite driver fallback chain logic",
+    "prompt": "Inspect src/lib/db/driver.js and explain the exact fallback chain and why better-sqlite3 is skipped on Node >= 24.",
+    "expected_files": ["src/lib/db/driver.js"],
+    "facts_checklist": ["better-sqlite3", "Node", "24", "fallback"],
+    "target_lines": 98
+  },
+  {
+    "id": "task-12-account-fallback-test-debug",
+    "category": "delegate-no",
+    "name": "Analyze 4xx fallback regression test assertions",
+    "prompt": "Inspect tests/unit/account-fallback-4xx.test.js and explain why 400 with invalid_request_error does not trigger cooldown.",
+    "expected_files": ["tests/unit/account-fallback-4xx.test.js"],
+    "facts_checklist": ["checkFallbackError", "cooldownMs", "400", "shouldFallback: false"],
+    "target_lines": 38
+  },
+  {
+    "id": "task-13-paths-resolution-plan",
+    "category": "delegate-no",
+    "name": "Review DB storage directory resolution in paths.js",
+    "prompt": "Inspect src/lib/db/paths.js and describe how data directories are resolved across development, standalone, and CLI environments.",
+    "expected_files": ["src/lib/db/paths.js"],
+    "facts_checklist": ["DATA_DIR", "resolve", "sqlite"],
+    "target_lines": 35
+  },
+  {
+    "id": "task-14-api-keys-repo-review",
+    "category": "delegate-no",
+    "name": "Inspect API key validation and lookup queries in apiKeysRepo",
+    "prompt": "Inspect src/lib/db/repos/apiKeysRepo.js and list all exported functions and their SQL queries.",
+    "expected_files": ["src/lib/db/repos/apiKeysRepo.js"],
+    "facts_checklist": ["apiKeys", "getAdapter", "export"],
+    "target_lines": 89
+  },
+  {
+    "id": "task-15-small-server-entry",
+    "category": "control-small",
+    "name": "Summarize custom-server h2c downgrade handling",
+    "prompt": "Read custom-server.js and explain how HTTP/2 cleartext (h2c) upgrade requests are handled and downgraded.",
+    "expected_files": ["custom-server.js"],
+    "facts_checklist": ["h2c", "upgrade", "contentLength"],
+    "target_lines": 139
+  },
+  {
+    "id": "task-16-small-chat-sse-entry",
+    "category": "control-small",
+    "name": "Summarize SSE request parsing in chat handler",
+    "prompt": "Read src/sse/handlers/chat.js and summarize how request bodies are parsed and how invalid JSON is responded to.",
+    "expected_files": ["src/sse/handlers/chat.js"],
+    "facts_checklist": ["handleChat", "request.json", "BAD_REQUEST"],
+    "target_lines": 337
+  },
+  {
+    "id": "task-17-small-db-schema-summary",
+    "category": "control-small",
+    "name": "List core tables defined in db schema",
+    "prompt": "Read src/lib/db/schema.js and list the names of all SQLite tables created by the migration statements.",
+    "expected_files": ["src/lib/db/schema.js"],
+    "facts_checklist": ["CREATE TABLE", "kv", "connections"],
+    "target_lines": 180
+  },
+  {
+    "id": "task-18-mixed-chat-pipeline",
+    "category": "mixed",
+    "name": "Compare chat handler entry vs core pipeline",
+    "prompt": "Compare the entrypoint logic in src/sse/handlers/chat.js (337 lines) with the execution flow in open-sse/handlers/chatCore.js (470 lines). How is control transferred between them?",
+    "expected_files": ["src/sse/handlers/chat.js", "open-sse/handlers/chatCore.js"],
+    "facts_checklist": ["handleChatCore", "handleChat", "translator"],
+    "target_lines": 807
+  },
+  {
+    "id": "task-19-mixed-token-refresh",
+    "category": "mixed",
+    "name": "Analyze token refresh service and background scheduler",
+    "prompt": "Compare src/sse/services/tokenRefresh.js (354 lines) and custom-server.js background hook. Explain how token expiry buffer triggers refreshes.",
+    "expected_files": ["src/sse/services/tokenRefresh.js", "custom-server.js"],
+    "facts_checklist": ["startBackgroundTokenRefresh", "TOKEN_EXPIRY_BUFFER_MS", "expiresAt"],
+    "target_lines": 493
+  },
+  {
+    "id": "task-20-mixed-cursor-executor-and-proto",
+    "category": "mixed",
+    "name": "Cross-reference Cursor executor with protobuf definitions",
+    "prompt": "Analyze how open-sse/executors/cursor.js uses the serialization functions in open-sse/utils/cursorProtobuf.js for client and agent communication.",
+    "expected_files": ["open-sse/executors/cursor.js", "open-sse/utils/cursorProtobuf.js"],
+    "facts_checklist": ["CursorExecutor", "buildAgentRunFrame", "protobuf"],
+    "target_lines": 2582
+  }
+]

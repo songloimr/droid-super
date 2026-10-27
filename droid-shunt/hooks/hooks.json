@@ -1,0 +1,25 @@
+{
+  "PreToolUse": [
+    {
+      "matcher": "Read",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "${DROID_PLUGIN_ROOT}/hooks/check-file-size",
+          "timeout": 30
+        }
+      ]
+    },
+    {
+      "matcher": "Execute",
+      "commandRegex": "(^|[;&|])\\s*(cat|head|tail|less|more)\\s",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "${DROID_PLUGIN_ROOT}/hooks/check-bash-read",
+          "timeout": 30
+        }
+      ]
+    }
+  ]
+}

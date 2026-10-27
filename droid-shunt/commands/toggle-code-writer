@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Usage: /toggle-code-writer [on|off|status]
+if [[ $# -gt 1 ]]; then
+  echo "Usage: /toggle-code-writer [on|off|status]" >&2
+  exit 1
+fi
+
+ACTION=$(echo "${1:-}" | tr '[:upper:]' '[:lower:]')
+case "$ACTION" in
+  ""|"on"|"off"|"status") ;;
+  *)
+    echo "Usage: /toggle-code-writer [on|off|status]" >&2
+    exit 1
+    ;;
+esac
+
+# Resolve plugin root
+PLUGIN_ROOT=""
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ -f "$SCRIPT_DIR/../.factory-plugin/plugin.json" ]]; then
+  PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+elif [[ -n "${DROID_PLUGIN_ROOT:-}" && -f "$DROID_PLUGIN_ROOT/.factory-plugin/plugin.json" ]]; then
+  PLUGIN_ROOT="$DROID_PLUGIN_ROOT"
+else
+  # Fallback: check ~/.factory/plugins/installed_plugins/*.json
+  if command -v jq >/dev/null 2>&1; then
+    for f in "$HOME"/.factory/plugins/installed_plugins/*.json; do
+      if [[ -f "$f" ]]; then
+        pid=$(jq -r '.pluginId // empty' "$f" 2>/dev/null || true)
+        if [[ "$pid" == "droid-shunt@droid-super" ]]; then
+          ipath=$(jq -r '.entry.installPath // empty' "$f" 2>/dev/null || true)
+          if [[ -n "$ipath" && -d "$ipath" && -f "$ipath/.factory-plugin/plugin.json" ]]; then
+            PLUGIN_ROOT="$ipath"
+            break
+          fi
+        fi
+      fi
+    done
+  fi
+fi
+
+if [[ -z "$PLUGIN_ROOT" || ! -d "$PLUGIN_ROOT" ]]; then
+  echo "Error: Could not locate droid-shunt plugin directory." >&2
+  exit 1
+fi
+
+DROID_ACTIVE="$PLUGIN_ROOT/droids/code-writer.md"
+DROID_DISABLED="$PLUGIN_ROOT/droids/code-writer.md.disabled"
+SKILL_ACTIVE="$PLUGIN_ROOT/skills/code-writer/SKILL.md"
+SKILL_DISABLED="$PLUGIN_ROOT/skills/code-writer/SKILL.md.disabled"
+
+if [[ ! -f "$DROID_ACTIVE" && ! -f "$DROID_DISABLED" ]]; then
+  echo "Error: Neither $DROID_ACTIVE nor $DROID_DISABLED exists." >&2
+  exit 1
+fi
+
+if [[ ! -f "$SKILL_ACTIVE" && ! -f "$SKILL_DISABLED" ]]; then
+  echo "Error: Neither $SKILL_ACTIVE nor $SKILL_DISABLED exists." >&2
+  exit 1
+fi
+
+# Detect current state
+if [[ -f "$DROID_ACTIVE" && -f "$SKILL_ACTIVE" ]]; then
+  CURRENT_STATE="on"
+elif [[ -f "$DROID_DISABLED" && -f "$SKILL_DISABLED" ]]; then
+  CURRENT_STATE="off"
+else
+  CURRENT_STATE="mixed"
+fi
+
+# Handle 'status'
+if [[ "$ACTION" == "status" ]]; then
+  echo "code-writer is currently: $CURRENT_STATE"
+  if [[ "$CURRENT_STATE" == "on" ]]; then
+    echo "  - Droid:  $DROID_ACTIVE (enabled)"
+    echo "  - Skill:  $SKILL_ACTIVE (enabled)"
+  elif [[ "$CURRENT_STATE" == "off" ]]; then
+    echo "  - Droid:  $DROID_DISABLED (disabled)"
+    echo "  - Skill:  $SKILL_DISABLED (disabled)"
+  else
+    echo "  - Droid:  $([[ -f "$DROID_ACTIVE" ]] && echo "$DROID_ACTIVE (enabled)" || echo "$DROID_DISABLED (disabled)")"
+    echo "  - Skill:  $([[ -f "$SKILL_ACTIVE" ]] && echo "$SKILL_ACTIVE (enabled)" || echo "$SKILL_DISABLED (disabled)")"
+  fi
+  exit 0
+fi
+
+# Determine target state
+TARGET_STATE=""
+if [[ -z "$ACTION" ]]; then
+  if [[ "$CURRENT_STATE" == "on" ]]; then
+    TARGET_STATE="off"
+  else
+    TARGET_STATE="on"
+  fi
+else
+  TARGET_STATE="$ACTION"
+fi
+
+# Transition state idempotently
+if [[ "$TARGET_STATE" == "on" ]]; then
+  if [[ "$CURRENT_STATE" == "on" ]]; then
+    echo "code-writer is already ON."
+  else
+    [[ -f "$DROID_DISABLED" ]] && mv "$DROID_DISABLED" "$DROID_ACTIVE"
+    [[ -f "$SKILL_DISABLED" ]] && mv "$SKILL_DISABLED" "$SKILL_ACTIVE"
+    echo "code-writer is now ON."
+    echo ""
+    echo "Notes:"
+    echo "- Droid definitions refresh automatically at the next Task call or run /droids (Reload)."
+    echo "- Skill catalog may require starting a new session to fully register."
+    echo "- Note: running 'droid plugin update' will reset code-writer back to default (OFF)."
+  fi
+elif [[ "$TARGET_STATE" == "off" ]]; then
+  if [[ "$CURRENT_STATE" == "off" ]]; then
+    echo "code-writer is already OFF."
+  else
+    [[ -f "$DROID_ACTIVE" ]] && mv "$DROID_ACTIVE" "$DROID_DISABLED"
+    [[ -f "$SKILL_ACTIVE" ]] && mv "$SKILL_ACTIVE" "$SKILL_DISABLED"
+    echo "code-writer is now OFF."
+    echo ""
+    echo "Notes:"
+    echo "- Droid definitions refresh automatically at the next Task call or run /droids (Reload)."
+    echo "- Skill catalog may require starting a new session to remove from catalog."
+    echo "- Note: running 'droid plugin update' will reset code-writer back to default (OFF)."
+  fi
+fi

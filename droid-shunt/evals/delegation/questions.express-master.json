@@ -1,0 +1,254 @@
+{
+  "deterministic_bulk_reader": [
+    {
+      "id": "bulk-express-create-application",
+      "type": "bulk-reader",
+      "category": "symbol-lookup",
+      "file": "lib/express.js",
+      "question": "What function is exported as module.exports in lib/express.js?",
+      "expected_keywords": ["createApplication"]
+    },
+    {
+      "id": "bulk-application-init",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/application.js",
+      "question": "What method on app initializes default settings and locals in lib/application.js?",
+      "expected_keywords": ["app.init"]
+    },
+    {
+      "id": "bulk-application-default-configuration",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/application.js",
+      "question": "What method defines default app settings such as env and etag in lib/application.js?",
+      "expected_keywords": ["defaultConfiguration"]
+    },
+    {
+      "id": "bulk-application-handle",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/application.js",
+      "question": "What method on app dispatches a req and res into the router pipeline in lib/application.js?",
+      "expected_keywords": ["app.handle"]
+    },
+    {
+      "id": "bulk-response-status",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What method on res sets the HTTP status code in lib/response.js?",
+      "expected_keywords": ["res.status"]
+    },
+    {
+      "id": "bulk-response-send",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What primary method on res sends the HTTP response body in lib/response.js?",
+      "expected_keywords": ["res.send"]
+    },
+    {
+      "id": "bulk-response-json",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What method on res formats the response as JSON with application/json content type in lib/response.js?",
+      "expected_keywords": ["res.json"]
+    },
+    {
+      "id": "bulk-response-jsonp",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What method on res provides JSONP support with callback wrapping in lib/response.js?",
+      "expected_keywords": ["res.jsonp"]
+    },
+    {
+      "id": "bulk-response-sendfile",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What method on res transfers a file at the given path using send library in lib/response.js?",
+      "expected_keywords": ["res.sendFile"]
+    },
+    {
+      "id": "bulk-response-cookie",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What method on res sets cookie name to value in lib/response.js?",
+      "expected_keywords": ["res.cookie"]
+    },
+    {
+      "id": "bulk-response-clear-cookie",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What method on res clears the cookie specified by name in lib/response.js?",
+      "expected_keywords": ["res.clearCookie"]
+    },
+    {
+      "id": "bulk-response-location",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What method on res sets the Location header in lib/response.js?",
+      "expected_keywords": ["res.location"]
+    },
+    {
+      "id": "bulk-response-redirect",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/response.js",
+      "question": "What method on res redirects to the specified URL in lib/response.js?",
+      "expected_keywords": ["res.redirect"]
+    },
+    {
+      "id": "bulk-request-header",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/request.js",
+      "question": "What method on req retrieves a request header value in a case-insensitive manner in lib/request.js?",
+      "expected_keywords": ["req.get"]
+    },
+    {
+      "id": "bulk-request-accepts",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/request.js",
+      "question": "What method on req checks if the specified content types are acceptable in lib/request.js?",
+      "expected_keywords": ["req.accepts"]
+    },
+    {
+      "id": "bulk-request-is",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/request.js",
+      "question": "What method on req checks if the incoming request matches the given content types in lib/request.js?",
+      "expected_keywords": ["req.is"]
+    },
+    {
+      "id": "bulk-utils-compile-etag",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/utils.js",
+      "question": "What function compiles the etag setting into a generator function in lib/utils.js?",
+      "expected_keywords": ["compileETag"]
+    },
+    {
+      "id": "bulk-view-lookup",
+      "type": "bulk-reader",
+      "category": "function-lookup",
+      "file": "lib/view.js",
+      "question": "What method on View resolves the path to the template on disk in lib/view.js?",
+      "expected_keywords": ["lookup"]
+    }
+  ],
+  "deterministic_code_writer": [
+    {
+      "id": "cw-unit-test-express-scratch",
+      "type": "code-writer",
+      "category": "test-generation",
+      "reference": "test/res.location.js",
+      "target_file": "evals/scratch/test-express-location.test.js",
+      "prompt": "Create a unit test file at evals/scratch/test-express-location.test.js that imports describe, it, expect from vitest and tests a function normalizeLocation(url) returning 'back' for empty url and url otherwise.",
+      "required_patterns": ["describe", "it", "expect", "vitest", "normalizeLocation"]
+    },
+    {
+      "id": "cw-middleware-scratch",
+      "type": "code-writer",
+      "category": "middleware-generation",
+      "reference": "lib/application.js",
+      "target_file": "evals/scratch/customMiddleware.js",
+      "prompt": "Create an Express middleware module at evals/scratch/customMiddleware.js that exports a middleware function headerLogger(req, res, next) calling console.log(req.headers) and next().",
+      "required_patterns": ["function headerLogger", "req", "res", "next", "module.exports"]
+    },
+    {
+      "id": "cw-router-scratch",
+      "type": "code-writer",
+      "category": "router-generation",
+      "reference": "lib/express.js",
+      "target_file": "evals/scratch/apiRouter.js",
+      "prompt": "Create a simple route handler module at evals/scratch/apiRouter.js that exports function createApiRouter() returning an object with get(path, fn) and post(path, fn) methods.",
+      "required_patterns": ["function createApiRouter", "get", "post", "module.exports"]
+    },
+    {
+      "id": "cw-etag-helper-scratch",
+      "type": "code-writer",
+      "category": "helper-generation",
+      "reference": "lib/utils.js",
+      "target_file": "evals/scratch/etagHelper.js",
+      "prompt": "Create an etag utility helper module at evals/scratch/etagHelper.js that exports function isFresh(reqHeaders, resHeaders) returning a boolean, and function generateHash(str) returning a sha1 hex string.",
+      "required_patterns": ["function isFresh", "function generateHash", "module.exports"]
+    },
+    {
+      "id": "cw-view-engine-scratch",
+      "type": "code-writer",
+      "category": "engine-generation",
+      "reference": "lib/view.js",
+      "target_file": "evals/scratch/dummyEngine.js",
+      "prompt": "Create a template engine wrapper module at evals/scratch/dummyEngine.js that exports function dummyRender(filePath, options, callback) reading filePath and invoking callback(null, content).",
+      "required_patterns": ["function dummyRender", "filePath", "options", "callback", "module.exports"]
+    },
+    {
+      "id": "cw-http-error-scratch",
+      "type": "code-writer",
+      "category": "error-generation",
+      "reference": "lib/response.js",
+      "target_file": "evals/scratch/httpError.js",
+      "prompt": "Create an HTTP error class at evals/scratch/httpError.js that exports class HttpError extends Error with constructor(status, message) setting this.status = status and this.message = message.",
+      "required_patterns": ["class HttpError extends Error", "this.status", "this.message", "module.exports"]
+    }
+  ],
+  "rubric_evaluation": [
+    {
+      "id": "rubric-app-handle-dispatch",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "lib/application.js",
+      "question": "Explain how app.handle processes incoming requests, dispatches through the router, and handles fallback errors in lib/application.js.",
+      "rubric": "Must mention router dispatching, next callback handling, router error propagation, and final handler fallback."
+    },
+    {
+      "id": "rubric-res-send-pipeline",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "lib/response.js",
+      "question": "Describe how res.send handles various body types (String, Buffer, Object, number), Content-Type determination, and ETag generation in lib/response.js.",
+      "rubric": "Must mention body type checks (string, buffer, object/json, number deprecation), Content-Length / Content-Type headers, and ETag generation with freshness check."
+    },
+    {
+      "id": "rubric-res-sendFile-streaming",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "lib/response.js",
+      "question": "Explain how res.sendFile validates paths, configures the send stream, and handles transmission errors and events in lib/response.js.",
+      "rubric": "Must mention send library stream creation, path validation (absolute / root), callback invocation, and file transmission error events."
+    },
+    {
+      "id": "rubric-req-accepts-negotiation",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "lib/request.js",
+      "question": "Explain how content negotiation works in lib/request.js for accepts, acceptsEncodings, acceptsCharsets, and acceptsLanguages.",
+      "rubric": "Must mention accepts library wrapper, header parsing, quality factor evaluation, and matching media types or encodings."
+    },
+    {
+      "id": "rubric-view-rendering-engine",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "lib/view.js",
+      "question": "Explain how the View class locates template files on disk, resolves relative and default engine paths, and delegates rendering to the engine in lib/view.js.",
+      "rubric": "Must mention root directories search, engine resolution (default or file extension), path lookup with fs stat, and View.prototype.render."
+    },
+    {
+      "id": "rubric-etag-and-trust-proxy",
+      "type": "bulk-reader",
+      "category": "architecture-analysis",
+      "file": "lib/utils.js",
+      "question": "Describe how compileETag and compileTrust parse configuration settings and generate evaluator functions in lib/utils.js.",
+      "rubric": "Must mention weak/strong ETag generator selection, custom function support, proxyaddr compile for trust proxy, and IP subnet/boolean/hop handling."
+    }
+  ]
+}

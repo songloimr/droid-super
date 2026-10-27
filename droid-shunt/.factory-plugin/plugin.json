@@ -1,0 +1,16 @@
+{
+  "name": "droid-shunt",
+  "description": "Shunts I/O-heavy work to cheap subagent models to save tokens. Hooks block large file reads and redirect to the bulk-reader/code-writer droids.",
+  "version": "0.3.0",
+  "author": {
+    "name": "songloimr"
+  },
+  "repository": "",
+  "license": "Apache-2.0",
+  "keywords": [
+    "token-optimization",
+    "model-routing",
+    "delegation",
+    "subagent"
+  ]
+}

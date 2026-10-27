@@ -1,0 +1,18 @@
+---
+name: code-writer
+description: Delegate boilerplate code generation to the code-writer subagent. Use for tests, config, docstrings, type stubs, or any generation where most output is predictable from reference files.
+---
+
+# Code Writer
+
+Delegate via the Task tool with `subagent_type: code-writer`. The task description must contain:
+
+1. The spec — what to generate.
+2. The reference file path(s) — mandatory; the subagent matches their patterns.
+3. The target output path.
+
+The subagent writes the file to disk directly. Review the result and make surgical edits for the 5–20% that needs judgment.
+
+Each call is independent. To build on generated output, pass that file as the reference in the next call.
+
+Do not delegate: debugging, refactors, or anything that requires reasoning about correctness.

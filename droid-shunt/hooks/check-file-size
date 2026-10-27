@@ -1,0 +1,50 @@
+#!/bin/bash
+# Block full-file reads on large files, redirect to the bulk-reader subagent.
+# Droid PreToolUse protocol: exit 2 blocks the tool call; stderr is feedback.
+# Self-contained: all routing logic lives here, no config file needed.
+
+MIN_LINES="${SHUNT_MIN_LINES:-350}"
+case "$MIN_LINES" in ''|*[!0-9]*) MIN_LINES=350 ;; esac
+
+input=$(cat)
+
+cwd=$(printf '%s' "$input" | jq -r '.cwd // empty')
+file_path=$(printf '%s' "$input" | jq -r '.tool_input.file_path // .tool_input.path // empty')
+offset=$(printf '%s' "$input" | jq -r '.tool_input.offset // empty')
+limit=$(printf '%s' "$input" | jq -r '.tool_input.limit // empty')
+
+is_positive_int() {
+  case "$1" in ''|*[!0-9]*) return 1 ;; *) [ "$1" -gt 0 ] ;; esac
+}
+
+# Targeted reads pass through — the caller already knows what it needs.
+# A zero offset/limit is NOT targeted: offset 0 with no limit is a full-file
+# read, so it must not bypass the threshold.
+if is_positive_int "$limit" || is_positive_int "$offset"; then
+  exit 0
+fi
+
+[ -z "$file_path" ] && exit 0
+
+# Resolve the path the way the shell would: expand ~, and resolve relative
+# paths against the session cwd from the hook input (hook cwd can differ).
+case "$file_path" in
+  "~")   file_path="$HOME" ;;
+  "~/"*) file_path="$HOME/${file_path#\~/}" ;;
+esac
+case "$file_path" in
+  /*) : ;;
+  *)  [ -n "$cwd" ] && file_path="$cwd/$file_path" ;;
+esac
+
+# File doesn't exist — let Read report the error itself.
+[ -f "$file_path" ] || exit 0
+
+lines=$(wc -l < "$file_path" 2>/dev/null | tr -d ' ')
+case "$lines" in ''|*[!0-9]*) lines=0 ;; esac
+
+if [ "$lines" -gt "$MIN_LINES" ]; then
+  echo "File is ${lines} lines (threshold: ${MIN_LINES}). Do not read it directly. Delegate the read to the bulk-reader subagent via the Task tool (bulk-reader skill): pass only the file path(s) and your question. If Task is unavailable (subagent or low autonomy), read chunked using offset/limit or use Grep. If you need exact content for an edit, re-read just the section with offset/limit." >&2
+  exit 2
+fi
+exit 0

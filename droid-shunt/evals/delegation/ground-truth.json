@@ -1,0 +1,238 @@
+{
+  "timestamp": "2026-10-25T15:12:33.832Z",
+  "target": "9router-next",
+  "repoRoot": "/Users/songloimr/GithubProjects/9router-next",
+  "bulk_reader_gt": {
+    "bulk-cursor-class": {
+      "file": "open-sse/executors/cursor.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/open-sse/executors/cursor.js",
+      "sha256": "27907e4a3b12ab2a9da4464e92a7c0bec425f311522fe166cd9cb2c9b2f020ac",
+      "lineCount": 1459,
+      "expected_keywords": [
+        "CursorExecutor"
+      ]
+    },
+    "bulk-kiro-class": {
+      "file": "open-sse/executors/kiro.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/open-sse/executors/kiro.js",
+      "sha256": "883ad5dd41c43d6ef053434cb1ae0f200bd089f1cb30a822c4d483a685caca33",
+      "lineCount": 1200,
+      "expected_keywords": [
+        "KiroExecutor"
+      ]
+    },
+    "bulk-tailscale-socket": {
+      "file": "src/lib/tunnel/tailscale/tailscale.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/lib/tunnel/tailscale/tailscale.js",
+      "sha256": "9a772042908095050dd30b3af1a498bcf559794f904891f5606ba756f2bf90d4",
+      "lineCount": 859,
+      "expected_keywords": [
+        "TAILSCALE_SOCKET"
+      ]
+    },
+    "bulk-token-expiry-buffer": {
+      "file": "src/sse/services/tokenRefresh.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/sse/services/tokenRefresh.js",
+      "sha256": "eb6b7608ef13877ec603c7333309225a4a9034546865ce27e54c443ab2a93c89",
+      "lineCount": 354,
+      "expected_keywords": [
+        "TOKEN_EXPIRY_BUFFER_MS"
+      ]
+    },
+    "bulk-mitm-start-server": {
+      "file": "src/mitm/manager.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/mitm/manager.js",
+      "sha256": "b6384575cf40bb7310fe9d0726457a7c95d2b5207ba45ac7451b1d7e426090e8",
+      "lineCount": 884,
+      "expected_keywords": [
+        "startServer",
+        "startMitm"
+      ]
+    },
+    "bulk-usage-stats-emitter": {
+      "file": "src/lib/db/repos/usageRepo.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/lib/db/repos/usageRepo.js",
+      "sha256": "ad4bf3642337c483211ac7507694f2c36adf0dad7e3256e9447c3cd5748bdbc1",
+      "lineCount": 815,
+      "expected_keywords": [
+        "statsEmitter"
+      ]
+    },
+    "bulk-custom-server-peer-token": {
+      "file": "custom-server.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/custom-server.js",
+      "sha256": "c3b4f23acd30384d814ac16f729cc956db717a342abc68a74153f87bbe45ff3f",
+      "lineCount": 139,
+      "expected_keywords": [
+        "NINEROUTER_PEER_TOKEN"
+      ]
+    },
+    "bulk-aliasrepo-scopes": {
+      "file": "src/lib/db/repos/aliasRepo.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/lib/db/repos/aliasRepo.js",
+      "sha256": "4450425efedd2e6ea57c42a10e936f7d173ce85627c96b6a1edeea3ddb5b096f",
+      "lineCount": 68,
+      "expected_keywords": [
+        "modelAliases",
+        "customModels",
+        "mitmAlias"
+      ]
+    },
+    "bulk-chatcore-main": {
+      "file": "open-sse/handlers/chatCore.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/open-sse/handlers/chatCore.js",
+      "sha256": "91b7710416dce40f05ae1784dd41a872541e5acd313f8357ec5d2046e39521c9",
+      "lineCount": 470,
+      "expected_keywords": [
+        "handleChatCore"
+      ]
+    },
+    "bulk-modelselect-component": {
+      "file": "src/shared/components/ModelSelectModal.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/shared/components/ModelSelectModal.js",
+      "sha256": "d87f4af8108a29e2b564d3ccc4be076e7f8519992cd1991aec0ed904d79d48fa",
+      "lineCount": 885,
+      "expected_keywords": [
+        "ModelSelectModal"
+      ]
+    },
+    "bulk-oauthmodal-component": {
+      "file": "src/shared/components/OAuthModal.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/shared/components/OAuthModal.js",
+      "sha256": "4abc79f567bc3fbe428081a24570528bffa23255df7d706a8a7deb05270dc009",
+      "lineCount": 1062,
+      "expected_keywords": [
+        "OAuthModal"
+      ]
+    },
+    "bulk-tokenrefresh-google": {
+      "file": "src/sse/services/tokenRefresh.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/sse/services/tokenRefresh.js",
+      "sha256": "eb6b7608ef13877ec603c7333309225a4a9034546865ce27e54c443ab2a93c89",
+      "lineCount": 354,
+      "expected_keywords": [
+        "refreshGoogleToken"
+      ]
+    },
+    "bulk-tailscale-isrunning": {
+      "file": "src/lib/tunnel/tailscale/tailscale.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/lib/tunnel/tailscale/tailscale.js",
+      "sha256": "9a772042908095050dd30b3af1a498bcf559794f904891f5606ba756f2bf90d4",
+      "lineCount": 859,
+      "expected_keywords": [
+        "isTailscaleRunning"
+      ]
+    },
+    "bulk-testutils-single": {
+      "file": "src/app/api/providers/[id]/test/testUtils.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/app/api/providers/[id]/test/testUtils.js",
+      "sha256": "ceaf1824d0f31571943150a917dd64660c2828458c165031e87fc0eb728e37bf",
+      "lineCount": 989,
+      "expected_keywords": [
+        "testSingleConnection"
+      ]
+    },
+    "bulk-connections-table": {
+      "file": "src/lib/db/repos/connectionsRepo.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/lib/db/repos/connectionsRepo.js",
+      "sha256": "9d53b5eecdd2865ad99bc4227f3887e2c269610074ecd6aa3c0e9ed38528d493",
+      "lineCount": 333,
+      "expected_keywords": [
+        "connections"
+      ]
+    },
+    "bulk-usage-push-ring": {
+      "file": "src/lib/db/repos/usageRepo.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/lib/db/repos/usageRepo.js",
+      "sha256": "ad4bf3642337c483211ac7507694f2c36adf0dad7e3256e9447c3cd5748bdbc1",
+      "lineCount": 815,
+      "expected_keywords": [
+        "pushToRing"
+      ]
+    },
+    "bulk-oauth-server-start": {
+      "file": "src/lib/oauth/utils/server.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/lib/oauth/utils/server.js",
+      "sha256": "091e4eae736f3b8abb59ea4418333111a2359316da41d6f994ed19963bc6c3c5",
+      "lineCount": 973,
+      "expected_keywords": [
+        "startLocalServer"
+      ]
+    },
+    "bulk-chat-handler-export": {
+      "file": "src/sse/handlers/chat.js",
+      "fullPath": "/Users/songloimr/GithubProjects/9router-next/src/sse/handlers/chat.js",
+      "sha256": "5dd60f0a1c4e60a391edd066a880b412ffef2e7eaa7ac57e9b8090d8f0713c10",
+      "lineCount": 337,
+      "expected_keywords": [
+        "handleChat"
+      ]
+    }
+  },
+  "code_writer_gt": {
+    "cw-unit-test-scratch": {
+      "reference": "tests/unit/account-fallback-4xx.test.js",
+      "referenceSha256": "3dcd8393585b51cc9b47dbe02c7670f12b871d1e69f96126de8aca257193188a",
+      "target_file": "evals/scratch/test-scratch-status.test.js",
+      "required_patterns": [
+        "describe",
+        "it",
+        "expect",
+        "vitest",
+        "checkStatus"
+      ]
+    },
+    "cw-db-repo-scratch": {
+      "reference": "src/lib/db/repos/aliasRepo.js",
+      "referenceSha256": "4450425efedd2e6ea57c42a10e936f7d173ce85627c96b6a1edeea3ddb5b096f",
+      "target_file": "evals/scratch/dummyRepo.js",
+      "required_patterns": [
+        "makeKv",
+        "getDummyItems",
+        "setDummyItem",
+        "export"
+      ]
+    },
+    "cw-db-adapter-scratch": {
+      "reference": "src/lib/db/driver.js",
+      "referenceSha256": "5136903b4f2d821abc132436fa2f01c4c9adcbcddc6b733e955b6e31e1e0b157",
+      "target_file": "evals/scratch/mockAdapter.js",
+      "required_patterns": [
+        "class MockAdapter",
+        "query",
+        "run",
+        "export default"
+      ]
+    },
+    "cw-constants-scratch": {
+      "reference": "src/shared/constants/cliToolProvider.js",
+      "referenceSha256": "2d9d78eeff5134bf811ee001a4b36a392367697ff5d67c1671aeaacd876a6f51",
+      "target_file": "evals/scratch/networkConstants.js",
+      "required_patterns": [
+        "DEFAULT_TIMEOUT_MS",
+        "MAX_RETRIES",
+        "RETRY_BACKOFF_BASE",
+        "export const"
+      ]
+    },
+    "cw-token-helper-scratch": {
+      "reference": "src/sse/services/tokenRefresh.js",
+      "referenceSha256": "eb6b7608ef13877ec603c7333309225a4a9034546865ce27e54c443ab2a93c89",
+      "target_file": "evals/scratch/tokenHelper.js",
+      "required_patterns": [
+        "export function isTokenExpired",
+        "export function maskToken"
+      ]
+    },
+    "cw-error-scratch": {
+      "reference": "open-sse/utils/error.js",
+      "referenceSha256": "4a985e71167e7b224da048103aafdcb7ff086098fdad6c111c7fe006d05bb64d",
+      "target_file": "evals/scratch/customError.js",
+      "required_patterns": [
+        "class GatewayError extends Error",
+        "this.statusCode",
+        "export"
+      ]
+    }
+  }
+}

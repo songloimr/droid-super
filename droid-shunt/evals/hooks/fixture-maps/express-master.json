@@ -1,0 +1,12 @@
+{
+  "small": "test/res.location.js",
+  "small_boundary": "hooks/fixtures/exact-349.txt",
+  "exact_350": "hooks/fixtures/exact-350.txt",
+  "medium_boundary": "hooks/fixtures/exact-351.txt",
+  "medium": "test/res.jsonp.js",
+  "large": "lib/response.js",
+  "large_2": "test/app.router.js",
+  "number_file": "hooks/fixtures/5",
+  "missing_file": "non_existent_file_abc123.js",
+  "directory": "lib"
+}

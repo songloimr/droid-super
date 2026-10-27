@@ -1,0 +1,16 @@
+{
+  "name": "droid-plan",
+  "description": "Evidence-based planning workflow for non-trivial code changes. Plans before editing, then validates with a mandatory conformance review.",
+  "version": "0.1.0",
+  "author": {
+    "name": "songloimr"
+  },
+  "repository": "",
+  "license": "Apache-2.0",
+  "keywords": [
+    "planning",
+    "spec",
+    "review",
+    "conformance"
+  ]
+}
